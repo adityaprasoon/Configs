@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Analyze",      // Any identifier
+            "port": 9222,           // Port at which chrome in debugger mode is started. Start chome with "--remote-debugging-port=9222"
+            "request": "attach",    // Attaches to already running chrome instance
+            "type": "chrome",       
+            "webRoot": "${workspaceFolder}/app",    // path to the ember app source code
+            "url": "http://localhost:4200/editor",  // URL of the tab to attach to
+            "sourceMapPathOverrides": {             // Ember CLI does not create source map in the format that vscode defaults to
+                "dataverse-ui/*": "${workspaceFolder}/app/*"    // dataverse-ui -- Value of ENV.modulePrefix variable in your config/environment.js file
+            }
+        }
+    ]
+}
